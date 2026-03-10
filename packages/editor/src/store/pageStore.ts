@@ -46,6 +46,7 @@ interface PageStore {
   // 元数据
   setBreakpoint(bp: Breakpoint): void
   updatePageMeta(meta: Partial<PageSchema['meta']>): void
+  updateCssVars(vars: Record<string, string>): void
 
   // 序列化
   loadPage(schema: PageSchema): void
@@ -143,6 +144,12 @@ export const usePageStore = create<PageStore>()(
     updatePageMeta(meta) {
       set((state) => {
         state.page.meta = { ...state.page.meta, ...meta }
+      })
+    },
+
+    updateCssVars(vars) {
+      set((state) => {
+        state.page.cssVars = { ...(state.page.cssVars ?? {}), ...vars }
       })
     },
 

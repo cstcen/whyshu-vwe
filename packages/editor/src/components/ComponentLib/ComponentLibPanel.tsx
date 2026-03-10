@@ -3,13 +3,13 @@ import { getMetasByCategory, getAllMetas } from '@/engine'
 import type { ComponentMeta } from '@/types'
 import { useDraggable } from '@dnd-kit/core'
 import { CSS } from '@dnd-kit/utilities'
-import { nanoid } from '@/utils/nanoid'
 
 const CATEGORIES = [
   { key: 'basic', label: '基础' },
   { key: 'layout', label: '布局' },
-  { key: 'media', label: '媒体' },
   { key: 'form', label: '表单' },
+  { key: 'media', label: '媒体' },
+  { key: 'advanced', label: '高级' },
 ] as const
 
 function DraggableItem({ meta }: { meta: ComponentMeta }) {
